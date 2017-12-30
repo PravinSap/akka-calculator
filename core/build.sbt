@@ -1,4 +1,6 @@
-name := "divider"
+organization := "com.calc"
+
+name := "core"
 
 version := "1.0"
 
