@@ -15,23 +15,7 @@ import java.util.Collections;
  */
 public class CalculatorController extends Controller {
 
-    ActorRef adder;
-
-    public CalculatorController(ActorSystem system) {
-        String actorRoute = "adder";
-        String actorRole = "";
-        if (!actorRoute.startsWith("/user/")) {
-            actorRoute = "/user/" + actorRoute;
-        }
-        Iterable<String> actorRouteesPaths = Collections.singletonList(actorRoute);
-        adder = system.actorOf(
-                new ClusterRouterGroup(new RandomGroup(actorRouteesPaths),
-                        new ClusterRouterGroupSettings(10000,actorRouteesPaths,
-                                false, actorRole)).props());
-    }
-
     public Result addition() {
-
         return ok("2+2=" + (2+2));
     }
 
